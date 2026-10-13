@@ -2,11 +2,19 @@ import sqlite3
 
 class SqlITE:
     def __init__(self, cursor=None):
-        conexion = sqlite3.connect("C:\Users\amoal\Desktop\Ejemplo\DBInforme.db")
+        ##
+        ##"C:\Users\amoal\Desktop\PROYECTOP\Solemne_Nro_2_POOs\DBInforme.db"
+        self.config = "C:\Users\amoal\Desktop\PROYECTOP\Solemne_Nro_2_POOs\DBInforme.db"
 
-        cursor = conexion.cursor()
-        cursor.execute()
+    def Consulta(self,Instruccion,Valor):
+        with sqlite3.connect(self.config) as Conectar:
+            cursor = Conectar.cursor()
+            cursor.execute(Instruccion,Valor)
+            cursor.close()
 
-        cursor.close()
-        conexion.commit()
-        conexion.close()
+    def Buscar(self,Instruccion,Valor):
+        with sqlite3.connect(self.config) as Conectar:
+            cursor = Conectar.cursor()
+
+
+
